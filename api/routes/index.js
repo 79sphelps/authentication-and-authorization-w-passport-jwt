@@ -1,14 +1,16 @@
-var express = require('express');
-var router = express.Router();
-var jwt = require('express-jwt');
-var auth = jwt({
+'use strict';
+
+const express = require('express');
+const router = express.Router();
+const jwt = require('express-jwt');
+const auth = jwt({
   secret: 'MY_SECRET',
   userProperty: 'payload'
 });
 
-var ctrlLanding = require('../controllers/landing');
-var ctrlProfile = require('../controllers/profile');
-var ctrlAuth = require('../controllers/authentication');
+const ctrlLanding = require('../controllers/landing');
+const ctrlProfile = require('../controllers/profile');
+const ctrlAuth = require('../controllers/authentication');
 
 router.get('/landing', auth, ctrlLanding.landingRead);
 

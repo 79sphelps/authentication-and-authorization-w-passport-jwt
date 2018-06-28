@@ -1,20 +1,15 @@
-/*
+'use strict';
 
-  There are some minor modifications to the default Express setup
-  Each is commented and marked with [SH] to make them easy to find
-
- */
-
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var cors = require('cors');     // INTERESTING
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const cors = require('cors');     // INTERESTING
 
 // [SH] Require Passport
-var passport = require('passport');
+const passport = require('passport');
 
 // [SH] Bring in the data model
 require('./api/models/db');
@@ -24,9 +19,9 @@ require('./api/config/passport');
 
 
 // [SH] Bring in the routes for the API (delete the default routes)
-var routesApi = require('./api/routes/index');
+const routesApi = require('./api/routes/index');
 
-var app = express();
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -84,6 +79,5 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-
 
 module.exports = app;
